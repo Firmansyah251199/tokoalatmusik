@@ -81,7 +81,7 @@
                 <TextView
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/black"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginBottom="15dp"
                     android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                 <TextView
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/black"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginBottom="15dp"
                     android:layout_width="wrap_content"

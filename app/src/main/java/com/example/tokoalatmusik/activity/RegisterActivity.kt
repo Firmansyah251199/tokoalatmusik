@@ -1,11 +1,17 @@
 package com.example.tokoalatmusik.activity
 
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tokoalatmusik.Helper.SharedPref
 import com.example.tokoalatmusik.R
+import com.example.tokoalatmusik.app.ApiConfig
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var share: SharedPref
@@ -55,6 +61,16 @@ class RegisterActivity : AppCompatActivity() {
             edt_password.requestFocus()
             return
         }
+        ApiConfig.instanceRetrofit.register(edt_nama.text.toString(), edt_email.text.toString(),edt_email.text.toString()).enqueue(object : Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+              //ketika gagal
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+               // ketika sukses
+            }
+
+        })
 
     }
 }

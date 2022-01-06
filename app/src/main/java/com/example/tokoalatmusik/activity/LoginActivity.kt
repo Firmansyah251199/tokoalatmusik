@@ -9,7 +9,6 @@ import com.example.tokoalatmusik.R
 class LoginActivity : AppCompatActivity() {
 
     lateinit var share:SharedPref
-
     lateinit var buttonproses : Button
     lateinit var buttonregister : Button
 
