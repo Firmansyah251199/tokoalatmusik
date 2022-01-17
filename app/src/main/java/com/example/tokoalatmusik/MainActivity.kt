@@ -6,22 +6,18 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.tokoalatmusik.activity.LoginActivity
 import com.example.tokoalatmusik.activity.MasukActivity
 import com.example.tokoalatmusik.fragment.AkunFragment
 import com.example.tokoalatmusik.fragment.HomeFragment
 import com.example.tokoalatmusik.fragment.KeranjangFragment
 import com.example.tokoalatmusik.Helper.SharedPref
-import com.example.tokoalatmusik.R
 
 
 class MainActivity : AppCompatActivity()
@@ -69,7 +65,7 @@ class MainActivity : AppCompatActivity()
         menuItem = menu.getItem(0)
         menuItem.isChecked = true
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        bottomNavigationView.setOnItemSelectedListener { item ->
 
             when (item.itemId) {
                 R.id.navigation_home -> {
@@ -79,7 +75,7 @@ class MainActivity : AppCompatActivity()
                     callFargment(1, fragmentKeranjang)
                 }
                 R.id.navigation_akun -> {
-                    if (s.getRegister()) {
+                    if (s.getStatusLogin()) {
                         callFargment(2, fragmentAkun)
                     } else {
                         startActivity(Intent(this, MasukActivity::class.java))

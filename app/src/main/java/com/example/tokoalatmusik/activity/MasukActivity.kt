@@ -1,5 +1,6 @@
 package com.example.tokoalatmusik.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -17,22 +18,26 @@ class MasukActivity : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_masuk)
 
-            share = SharedPref(this)
+            buttonproses = findViewById(R.id.btn_prosesLogin)
+            buttonregister = findViewById(R.id.btn_register)
 
+            share = SharedPref(this)
+            buttonproses.setOnClickListener {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
             mainButton()
 
 
         }
 
-        fun mainButton(){
-            buttonproses = findViewById(R.id.btn_prosesLogin)
-            buttonproses.setOnClickListener {
-                share.setStatusLogin(true)
-            }
-            buttonregister = findViewById(R.id.btn_register)
-            buttonregister.setOnClickListener {
-                share.setRegister(true)
-            }
+        private fun mainButton(){
+
+
+        buttonregister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
+    }
+
+
     }
 
